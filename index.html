@@ -4,7 +4,7 @@
 <head>
   <script>
     // Measure a view of product details. This example assumes the detail view occurs on pageload,<script>
-    // function addCart(quantity, totalPrice) {
+    function addCart(quantity, totalPrice) {
       window.dataLayer = window.dataLayer || []
       dataLayer.push({ ecommerce: null });
       dataLayer.push({
@@ -13,23 +13,24 @@
           items: [{
             item_name: "神戸トラッドクッキー　Ａ",
             item_id: "500000",
-            price: 1602,
+            price: 16.2,
             item_brand: "〇〇シリーズ",
             item_category: "スイーツ・菓子・アイス",
             item_category2: "洋菓子・スイーツ",
             item_variant: "2023 - 4 - 1",
             affiliation: "delivery",
             quantity: 1,
-            discount: 100,
-            metric3: 0,
-            metric4: 0,
+            discount: 2.22,
+            // discount: 100,
+            // metric3: 0,
+            // metric4: 0,
           }]
         }
       });
 
-      // console.log(`カートに${quantity}個の商品を追加しました。合計金額は¥${totalPrice}です。`);
+      console.log(`カートに${quantity}個の商品を追加しました。合計金額は¥${totalPrice}です。`);
 
-    // }
+    }
   </script>
 
   <!-- Google Tag Manager -->
@@ -90,8 +91,8 @@
       const quantity = Number(quantityInput.value);
       const price = 1000;
       const totalPrice = quantity * price;
-      console.log(`カートに${quantity}個の商品を追加しました。合計金額は¥${totalPrice}です。`);
-      // addCart(quantity, totalPrice);
+      // console.log(`カートに${quantity}個の商品を追加しました。合計金額は¥${totalPrice}です。`);
+      addCart(quantity, totalPrice);
       form.reset();
     });
   </script>
