@@ -2,12 +2,44 @@
 <html lang="ja">
 
 <head>
+  <script>
+    // Measure a view of product details. This example assumes the detail view occurs on pageload,<script>
+    function addCart(quantity, totalPrice) {
+      window.dataLayer = window.dataLayer || []
+      dataLayer.push({ ecommerce: null });
+      dataLayer.push({
+        event: "view_item", ecommerce: {
+          items: [{
+            item_name: "神戸トラッドクッキー　Ａ",
+            item_id: "500000",
+            price: 1602,
+            item_brand: "〇〇シリーズ",
+            item_category: "スイーツ・菓子・アイス",
+            item_category2: "洋菓子・スイーツ",
+            item_variant: "2023 - 4 - 1",
+            affiliation: "delivery",
+            quantity: 1,
+            discount: 100,
+            metric3: 0,
+            metric4: 0,
+          }]
+        }
+      });
+
+      console.log(`カートに${quantity}個の商品を追加しました。合計金額は¥${totalPrice}です。`);
+
+    }
+  </script>
+
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-WTNL6LZ');</script>
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WTNL6LZ');</script>
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <title>サンプル商品ページ</title>
@@ -16,8 +48,8 @@
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTNL6LZ"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTNL6LZ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <header>
     <h1>サンプル商品ページ</h1>
@@ -57,7 +89,7 @@
       const quantity = Number(quantityInput.value);
       const price = 1000;
       const totalPrice = quantity * price;
-      console.log(`カートに${quantity}個の商品を追加しました。合計金額は¥${totalPrice}です。`);
+      addCart(quantity, totalPrice);
       form.reset();
     });
   </script>
