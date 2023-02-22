@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WTNL6LZ');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <title>サンプル商品ページ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTNL6LZ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <header>
+    <h1>サンプル商品ページ</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#">ホーム</a></li>
+      <li><a href="#">商品一覧</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section id="product-image">
+      <img src="product-image.jpg" alt="商品画像">
+    </section>
+    <section id="product-info">
+      <h2>商品名</h2>
+      <p>こちらはサンプルとなります。</p>
+      <p>価格: ¥1,000</p>
+      <form>
+        <label for="quantity">数量:</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
+        <button type="submit" id="add-to-cart">カートに追加</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2023 サンプル商品ページ</p>
+  </footer>
+  <script>
+    const form = document.querySelector('form');
+    const quantityInput = document.getElementById('quantity');
+    const addToCartButton = document.getElementById('add-to-cart');
+
+    addToCartButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      const quantity = Number(quantityInput.value);
+      const price = 1000;
+      const totalPrice = quantity * price;
+      console.log(`カートに${quantity}個の商品を追加しました。合計金額は¥${totalPrice}です。`);
+      form.reset();
+    });
+  </script>
+</body>
+
+</html>
