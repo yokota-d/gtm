@@ -8,27 +8,49 @@
       window.dataLayer = window.dataLayer || []
       dataLayer.push({ ecommerce: null });
       dataLayer.push({
-        event: "view_item", ecommerce: {
-          items: [{
-            item_name: "神戸トラッドクッキー　Ａ",
+        event: "purchase",
+        ecommerce: {
+          transaction_id: "12345", /*注文番号*/
+          value: 10000, /*税込み注文金額*/
+          tax: 100, /*消費税合計*/
+          shipping: 2700, /*商品毎の送料の合計値←GA4で自動算出の為不要か確認が必要*/
+          currency: "JPY",
+          items: [
+            {
+            item_name: "佐賀の牛肉",
             item_id: "500000",
-            price: 16200,
-            currency: "JPY",
-            discount: 2.22,
-            item_brand: "〇〇シリーズ",
-            item_category: "スイーツ・菓子・アイス",
-            item_category2: "洋菓子・スイーツ",
-            item_variant: new Date('2022-4-1').toISOString(),
-            affiliation: "delivery",
-            quantity: 1,
-            discount: 100,
-            metric3: 0,
-            metric4: 0,
-          }]
-        }
+            location_id: "佐賀県", /*ストアに紐づく都道府県*/
+            affiliation: "120101988", /*店舗コード*/
+            price: 1602, /*金額は税込み*/
+            item_brand: "音更ぎょうざの宝永【北海道お取り寄せ食堂】", /*店舗名*/
+            item_category: "ブレッドクラム大カテ",
+            item_category2: "ブレッドクラム中カテ",
+            item_category3: "ブレッドクラム子カテ",
+            item_category4: "ブレッドクラム孫カテ",
+            item_variant: "S / white",
+            quantity: 1, /*商品の数量*/
+            metric: 1500, /*商品単位の送料*/
+          },
+          {
+            item_name: "紅玉りんごのアップルパイ５個詰合せ＆アップルソーダ「アプリモ」【送料別】",
+            item_id: "10086910",
+            location_id: "青森県", /*ストアに紐づく都道府県*/
+            affiliation: "134211988", /*店舗コード*/
+            price: 3888, /*金額は税込み*/
+            item_brand: "ヤマダファーム ～ すべての物語は、美味しい「りんご」作りから", /*店舗名*/
+            item_category: "お取り寄せ グルメ",
+            item_category2: "スイーツ / 洋菓子",
+            item_category3: "パイ",
+            item_category4: "ブレッドクラム孫カテ", /*データがない場合ブランク*/
+            item_variant: "30個入",
+            quantity: 1, /*商品の数量*/
+            metric: 1250, /*商品単位の送料*/
+          },
+        ]
+      }
       });
 
-      console.log(`カートに${quantity}個の商品を追加しました。合計金額は¥${totalPrice}です。`);
+    console.log(`カートに${quantity}個の商品を追加しました。合計金額は¥${totalPrice}です。`);
 
     }
   </script>
@@ -58,9 +80,9 @@
   </header>
   <nav>
     <ul>
-      <li><a href="#">ホーム</a></li>
-      <li><a href="#">商品一覧</a></li>
-      <li><a href="#">お問い合わせ</a></li>
+      <li><a href="/*">ホーム</a></li>
+      <li><a href="/*">商品一覧</a></li>
+      <li><a href="/*">お問い合わせ</a></li>
     </ul>
   </nav>
   <main>
