@@ -94,7 +94,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <form>
         <label for="quantity">数量:</label>
         <input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
+        <button type="submit" id="view-item">アイテムを表示</button>
         <button type="submit" id="add-to-cart">カートに追加</button>
+        <button type="submit" id="purchase">購入</button>
       </form>
     </section>
   </main>
@@ -111,8 +113,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const quantity = Number(quantityInput.value);
       const price = 1000;
       const totalPrice = quantity * price;
-      // console.log(`カートに${quantity}個の商品を追加しました。合計金額は¥${totalPrice}です。`);
-      addCart(quantity, totalPrice);
+      console.log(`カートに${quantity}個の商品を追加しました。合計金額は¥${totalPrice}です。`);
+      // addCart(quantity, totalPrice);
       form.reset();
     });
   </script>
